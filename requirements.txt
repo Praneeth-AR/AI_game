@@ -1,0 +1,10 @@
+#Cython==0.23
+Cython
+-e git+https://github.com/kivy/kivy#egg=Kivy
+-e git+https://github.com/kivy/buildozer#egg=buildozer
+pyinstaller
+
+colorama
+sh
+jinja2
+enum34

@@ -1,0 +1,50 @@
+#: import utils kivy.utils
+
+FloatLayout:
+    Label:
+        pos_hint:
+            {
+            "center_x": 0.5,
+            "center_y": 0.8
+            }
+        text: app.map_location
+    Hex:
+        text: "H1"
+        center_x: 200
+        center_y: 200
+    Hex:
+        text: "H2"
+        center_x: 270
+        center_y: 200
+    Hex:
+        text: "H3"
+        center_x: 235
+        center_y: 140
+
+
+
+<Hex>:
+    size_hint: None, None
+    size: "75dp", "75dp"
+    pos_hint: {}
+    on_touch_up: app.update_press(self.text)
+    canvas:
+        Color:
+            rgba: self.tile_color
+        Ellipse:
+            pos: self.pos
+            size: self.size
+            segments: 6
+        Color:
+            rgb: utils.get_color_from_hex("#AB7B29")
+        Line:
+            width: 2
+            circle:
+                [
+                self.center_x,
+                self.center_y,
+                (self.width / 2) + dp(2),
+                360,
+                0,
+                6
+                ]
